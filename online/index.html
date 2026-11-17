@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d1720">
+<title>WWIII أونلاين</title>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<!-- Menu: no map is loaded until a match is entered. -->
+<section id="menu" class="screen">
+  <div class="card">
+    <h1>WWIII</h1>
+    <p class="sub">الحرب العالمية الثالثة — أونلاين</p>
+    <label class="field">اسمك
+      <input id="playerName" maxlength="24" autocomplete="nickname" placeholder="قائد">
+    </label>
+    <div id="resume" class="resume hidden">
+      <button id="resumeBtn" class="primary">متابعة مباراتك</button>
+    </div>
+    <div class="row">
+      <input id="roomName" maxlength="32" placeholder="اسم الغرفة الجديدة">
+      <button id="createBtn" class="primary">إنشاء غرفة</button>
+    </div>
+    <div class="list-head"><span>الغرف</span><button id="refreshBtn" class="ghost">تحديث</button></div>
+    <div id="rooms" class="rooms"><div class="muted">جارٍ الاتصال بالخادم…</div></div>
+    <div id="serverLine" class="server muted"></div>
+  </div>
+</section>
+
+<!-- Nation choice inside a room. -->
+<section id="pick" class="screen hidden">
+  <div class="card tall">
+    <div class="list-head"><span id="pickTitle">اختر دولتك</span><button id="pickBack" class="ghost">رجوع</button></div>
+    <input id="nationSearch" placeholder="ابحث عن دولة">
+    <div id="nations" class="nations"></div>
+  </div>
+</section>
+
+<!-- Loading the map / the room. -->
+<section id="loading" class="screen hidden">
+  <div class="card center">
+    <div class="spinner"></div>
+    <div id="loadingText">جارٍ التحميل…</div>
+    <button id="loadingCancel" class="ghost">إلغاء</button>
+  </div>
+</section>
+
+<!-- The match. -->
+<section id="game" class="hidden">
+  <canvas id="map"></canvas>
+  <header id="hud">
+    <div class="me"><img id="myFlag" alt=""><span id="myName"></span></div>
+    <div class="clock"><span id="clock"></span><span id="speed" class="chip"></span></div>
+    <div class="right"><span id="net" class="dot"></span><button id="leaveBtn" class="ghost small">خروج</button></div>
+  </header>
+  <div id="banner" class="banner hidden"></div>
+  <div id="hint" class="hint hidden"></div>
+  <footer id="panel" class="panel hidden">
+    <div class="panel-top">
+      <img id="selIcon" alt="">
+      <div class="sel-text"><div id="selTitle"></div><div id="selSub" class="muted"></div></div>
+      <button id="selClose" class="ghost small">✕</button>
+    </div>
+    <div id="selCmds" class="cmds">
+      <button id="cmdMove" class="primary">تحريك</button>
+      <button id="cmdStop">إيقاف</button>
+    </div>
+  </footer>
+  <div id="toast" class="toast hidden"></div>
+  <div class="zoom">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">−</button>
+    <button id="homeBtn" title="عاصمتي">⌂</button>
+  </div>
+</section>
+
+<script src="config.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
